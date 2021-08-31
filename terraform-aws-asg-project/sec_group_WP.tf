@@ -18,6 +18,13 @@ resource "aws_security_group" "WP_SG" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"] //["${aws_elb.External_ALB}"]
   }
+  ingress {
+    description = "Allow TCP"
+    from_port   = 8080
+    to_port     = 8080
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"] //["${aws_elb.External_ALB}"]
+  }
 
   egress {
     from_port   = 0
